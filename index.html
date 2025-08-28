@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MiniTable — личные таблицы</title>
+  <meta name="description" content="Простая мини-таблица а-ля Airtable. Локальное хранение, экспорт/импорт.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">MiniTable</div>
+    <input type="search" id="searchInput" placeholder="Поиск..." />
+    <div class="toolbar">
+      <button id="addTableBtn" class="btn">+ Таблица</button>
+      <button id="exportBtn" class="btn">⬇ Экспорт</button>
+      <label for="importInput" class="btn file-btn">⬆ Импорт</label>
+      <input type="file" id="importInput" accept=".json,application/json" hidden />
+      <button id="themeToggle" class="btn" title="Переключить тему">🌓</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">Таблицы</div>
+      <ul id="tablesList" class="tables-list"></ul>
+    </aside>
+
+    <main class="main">
+      <div class="table-toolbar">
+        <span id="tableTitle" class="table-title" contenteditable="true" spellcheck="false"></span>
+        <div class="right">
+          <button id="addRowBtn" class="btn primary">+ Строка</button>
+          <button id="addColumnBtn" class="btn">+ Колонка</button>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="dataTable"></table>
+      </div>
+
+      <div class="hint">
+        Данные сохраняются локально в этом браузере. Для переноса на другой компьютер — используйте Экспорт/Импорт JSON.
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <small>© MiniTable. Работает офлайн. GitHub Pages.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
